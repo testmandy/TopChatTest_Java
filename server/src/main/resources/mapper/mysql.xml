@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--执行的sql语句-->
+<mapper namespace="com.top">
+    <select id="login" resultType="Integer">
+        select count(*) from oauth_user
+        where rawId=#{rawId}
+        and email=#{email};
+    </select>
+
+    <select id="getUserInfo" resultType="com.top.model.User">
+        select * from oauth_user where userId=#{userId};
+    </select>
+
+
+    <!--<select id="getUserInfo" parameterType="Integer" resultType="Map">-->
+        <!--select * from user where id=#{id};-->
+    <!--</select>-->
+
+    <!--<select id="getUserList" resultType="com.top.model.User">-->
+        <!--select * from user;-->
+    <!--</select>-->
+
+    <!--<insert id="addUser" parameterType="com.top.model.User">-->
+        <!--insert into user(id,name,sex,age)-->
+        <!--values(#{id},#{name},#{sex},#{age});-->
+    <!--</insert>-->
+
+    <!--<update id="updateUser" parameterType="com.top.model.User">-->
+        <!--update user set name=#{name},age=#{age}-->
+        <!--where id=#{id};-->
+    <!--</update>-->
+
+    <!--<delete id="deleteUser" parameterType="Integer">-->
+        <!--delete from user where id=#{id};-->
+    <!--</delete>-->
+
+
+</mapper>

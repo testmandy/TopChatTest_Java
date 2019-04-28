@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+logging:
+  path: logs
+  file: mylog.log
+
+spring:
+  application:
+    name: TOP_Test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://182.16.0.25:3306/top?useSSL=false
+    username: mandy
+    password: 123456
+
+mybatis:
+  type-aliases-package: com.top.model
+  mapper-locations:
+    - mapper/*
+
+
