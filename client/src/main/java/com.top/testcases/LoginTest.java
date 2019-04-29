@@ -51,9 +51,15 @@ public class LoginTest {
     @Test(groups = "loginFalse",description = "登录失败接口测试")
     public void loginFalse() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
-        LoginCase loginFalse = session.selectOne("loginCase",2);
-        System.out.println(loginFalse.toString());
+        LoginCase loginCase = session.selectOne("loginCase",2);
+        System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
+
+        // 发请求，获取结果
+        String result = getResult(loginCase);
+
+        // 验证返回结果
+        Assert.assertEquals(loginCase.getExpected(),result);
     }
 
 
@@ -84,7 +90,7 @@ public class LoginTest {
         String result;
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         result = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("登录测试返回结果:" + result);
+        System.out.println("------------------登录测试用例执行结果------------------");
         System.out.println("返回的statusline为:" + response.getStatusLine());
 
         List resultList = Arrays.asList(result);
@@ -92,11 +98,7 @@ public class LoginTest {
 
         System.out.println("返回的Json内容为：" + array);
 
-
-
-
         int statusCode = response.getStatusLine().getStatusCode();
-
         if (statusCode == 200) {
             return "true";
         }
