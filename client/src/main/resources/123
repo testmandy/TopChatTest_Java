@@ -1,0 +1,11 @@
+
+CREATE TABLE GetUserInfo
+(
+userId int,
+address varchar(255),
+displayName varchar(255),
+balance double()
+privateKey varchar(255),
+publicKey varchar(255),
+expected varchar(255)
+);

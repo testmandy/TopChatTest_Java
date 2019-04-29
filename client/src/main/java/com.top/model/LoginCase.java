@@ -9,6 +9,12 @@ import lombok.Data;
 @Data
 public class LoginCase {
     private String rawId;
+    private String displayName;
+    private String photoURL;
     private String email;
+    private String providerId;
+    private String accessToken;
+    private String federatedId;
+    private String code;
     private String expected;
 }

@@ -1,6 +1,7 @@
 package com.top.config;
 
 
+import org.apache.http.Header;
 import org.apache.http.client.CookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -15,7 +16,7 @@ public class TestConfig {
 
     // 定义共用的httpClient
     public static DefaultHttpClient defaultHttpClient;
-    public static CookieStore cookieStore;
-
+    public static CookieStore store;
+    public static Header header;
 
 }

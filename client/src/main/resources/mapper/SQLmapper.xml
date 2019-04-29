@@ -9,10 +9,9 @@
         select * from logincase where id=#{id} ;
     </select>
 
-    <select id="getUserInfo" resultType="com.top.model.User">
-        select * from oauth_user where userId=#{userId};
+    <select id="getUserInfo" parameterType="Integer" resultType="com.top.model.GetUserInfoCase">
+        select * from getuserinfocase where id=#{id};
     </select>
-
 
 
 </mapper>

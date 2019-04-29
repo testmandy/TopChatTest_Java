@@ -8,6 +8,12 @@ import lombok.Data;
 
 @Data
 public class GetUserInfoCase {
-    private int uid;
+    private String userId;
+    private String address;
+    private String displayName;
+    private double balance;
+    private String publicKey;
     private String expected;
 }
+
+
