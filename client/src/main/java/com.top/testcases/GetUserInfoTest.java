@@ -22,14 +22,14 @@ public class GetUserInfoTest {
     public void getUserInfo() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
         GetUserInfoCase getUserInfoCase = session.selectOne("getUserInfo",1);
-        System.out.println(getUserInfoCase.toString());
+//        System.out.println(getUserInfoCase.toString());
         System.out.println(TestConfig.getUserInfoUrl);
 
         // 发请求，获取结果
         String result = getResult(getUserInfoCase);
 
         // 验证返回结果
-        Assert.assertEquals(getUserInfoCase.getExpected(),result);
+        Assert.assertEquals(getUserInfoCase,result);
 
 
     }
