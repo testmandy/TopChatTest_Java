@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--执行的sql语句-->
+<mapper namespace="com.top.model">
+    <select id="loginCase" parameterType="Integer" resultType="com.top.model.LoginCase">
+        select * from logincase where id=#{id} ;
+    </select>
+
+    <select id="getUserInfo" resultType="com.top.model.User">
+        select * from oauth_user where userId=#{userId};
+    </select>
+
+
+
+</mapper>

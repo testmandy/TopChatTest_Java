@@ -2,6 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
+        <!--184.169.138.239:3306/course-->
+        <!--dingtone-->
+        <!--Dingtone@567-->
+
 <configuration>
     <!-- 注册对象的空间命名 -->
     <environments default="development">
@@ -11,11 +15,11 @@
                 <!-- 1.加载数据库驱动 -->
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <!-- 2.数据库连接地址 -->
-                <property name="url" value="jdbc:mysql://184.169.138.239:3306/course"/>
+                <property name="url" value="jdbc:mysql://172.16.0.25:3306/top?useSSL=false"/>
                 <!-- 数据库用户... -->
-                <property name="username" value="dingtone"/>
+                <property name="username" value="mandy"/>
                 <!-- 数据库密码... -->
-                <property name="password" value="Dingtone@567"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>

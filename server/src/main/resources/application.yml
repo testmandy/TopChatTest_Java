@@ -10,7 +10,7 @@ spring:
     name: TOP_Test
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://182.16.0.25:3306/top?useSSL=false
+    url: jdbc:mysql://172.16.0.25:3306/top?useSSL=false
     username: mandy
     password: 123456
 
