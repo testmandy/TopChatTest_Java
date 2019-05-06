@@ -13,5 +13,22 @@
         select * from getuserinfocase where id=#{id};
     </select>
 
+    <select id="sendLottery" parameterType="Integer" resultType="com.top.model.SendLotteryCase">
+        select * from sendLotteryCase where id=#{id};
+    </select>
+
+    <select id="sendLotteryInfo" parameterType="Integer" resultType="com.top.model.SendLotteryInfoCase">
+        select * from sendLotteryInfoCase where id=#{id};
+    </select>
+
+    <select id="bettingLottery" parameterType="Integer" resultType="com.top.model.BettingLotteryCase">
+        select * from bettingLotteryCase where id=#{id};
+    </select>
+
+    <select id="getLottoryExpireTime" parameterType="Integer" resultType="com.top.model.GetLottoryExpireTimeCase">
+        select * from getLottoryExpireTime where id=#{id};
+    </select>
+
+
 
 </mapper>

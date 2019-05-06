@@ -27,6 +27,19 @@ public class ConfigFile {
         if (name == InterfaceName.GETUSERINFO){
             uri = bundle.getString("getUserInfo.uri");
         }
+        if (name == InterfaceName.SENDLOTTERY){
+            uri = bundle.getString("sendLottery.uri");
+        }
+        if (name == InterfaceName.SENDLOTTERYINFO){
+            uri = bundle.getString("sendLotteryInfo.uri");
+        }
+        if (name == InterfaceName.BETTINGLOTTERY){
+            uri = bundle.getString("bettingLottery.uri");
+        }
+        if (name == InterfaceName.GETLOTTORYEXPIRETIME){
+            uri = bundle.getString("getLottoryExpireTime.uri");
+        }
+
 
         // 拼接地址
         String testUrl = address + uri;

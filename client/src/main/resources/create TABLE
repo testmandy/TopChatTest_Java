@@ -1,0 +1,11 @@
+CREATE TABLE `sendlotterycase` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`address` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`userId` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`amount` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`expected` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	PRIMARY KEY (`id`)
+)
+COMMENT='发起彩票测试用例'
+COLLATE='utf8_bin'
+ENGINE=InnoDB;

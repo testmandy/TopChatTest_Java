@@ -11,25 +11,31 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.ibatis.session.SqlSession;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.*;
 
 public class LoginTest {
+
+    String myToken;
 
     @BeforeTest(groups = "loginTrue",description = "测试准备工作，获取HttpClient对象")
     public void beforeTest(){
         // 为url赋值
         TestConfig.loginUrl = ConfigFile.getUrl(InterfaceName.LOGIN);
         TestConfig.getUserInfoUrl = ConfigFile.getUrl(InterfaceName.GETUSERINFO);
+        TestConfig.sendLotteryUrl = ConfigFile.getUrl(InterfaceName.SENDLOTTERY);
+        TestConfig.sendLotteryInfoUrl = ConfigFile.getUrl(InterfaceName.SENDLOTTERYINFO);
+        TestConfig.bettingLotteryUrl = ConfigFile.getUrl(InterfaceName.BETTINGLOTTERY);
+        TestConfig.getLottoryExpireTimeUrl = ConfigFile.getUrl(InterfaceName.GETLOTTORYEXPIRETIME);
 
         // 实例化httpClient
         TestConfig.defaultHttpClient = new DefaultHttpClient();
+
+
 
     }
 
@@ -93,13 +99,22 @@ public class LoginTest {
         System.out.println("------------------登录测试用例执行结果------------------");
         System.out.println("返回的statusline为:" + response.getStatusLine());
 
-        List resultList = Arrays.asList(result);
-        JSONArray array = new JSONArray(resultList);
+        System.out.println("返回的Json内容为：" + result);
 
-        System.out.println("返回的Json内容为：" + array);
+        JSONObject reslutJson = new JSONObject(result);
+        JSONObject dataValue = reslutJson.getJSONObject("data");
+        System.out.println("返回的data为：" + dataValue);
+        String tokenValue = dataValue.getString("accesstoken");
+        System.out.println("返回的accesstoken为：" + tokenValue);
 
-        int statusCode = response.getStatusLine().getStatusCode();
-        if (statusCode == 200) {
+        TestConfig.token = tokenValue;
+
+        post.setHeader("token",tokenValue);
+//        System.out.println(post.getHeaders("token"));
+
+
+        int errCode = reslutJson.getInt("ErrCode");
+        if (errCode == 0) {
             return "true";
         }
         return "false";

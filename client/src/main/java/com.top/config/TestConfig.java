@@ -1,7 +1,6 @@
 package com.top.config;
 
 
-import org.apache.http.Header;
 import org.apache.http.client.CookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -13,10 +12,15 @@ public class TestConfig {
     // 定义不同的url
     public static String loginUrl;
     public static String getUserInfoUrl;
+    public static String sendLotteryUrl;
+    public static String sendLotteryInfoUrl;
+    public static String bettingLotteryUrl;
+    public static String getLottoryExpireTimeUrl;
+
 
     // 定义共用的httpClient
     public static DefaultHttpClient defaultHttpClient;
     public static CookieStore store;
-    public static Header header;
+    public static String token;
 
 }
