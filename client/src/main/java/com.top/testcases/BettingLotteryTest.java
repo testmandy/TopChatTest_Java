@@ -15,6 +15,10 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+/**
+ * @Author mandy
+ * @Create 2019/5/7 14:10
+ */
 public class BettingLotteryTest {
 
     @Test(dependsOnGroups = "loginTrue",description = "判断该轮彩票投注金额是否有变化接口测试")

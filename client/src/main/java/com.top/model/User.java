@@ -2,6 +2,8 @@ package com.top.model;
 
 /**用户信息基础数据
  *
+ * @Author mandy
+ * @Create 2019/5/7 14:10
  */
 
 import lombok.Data;

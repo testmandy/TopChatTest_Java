@@ -10,6 +10,9 @@ import java.io.Reader;
 
 /**用来读取数据库、执行sql语句的对象
  * （每个case都获取一个对象太麻烦所以封装到公共方法中）
+ *
+ * @Author mandy
+ * @Create 2019/5/7 14:10
  */
 
 public class DatabaseUtil {

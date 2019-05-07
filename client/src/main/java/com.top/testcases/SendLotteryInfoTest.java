@@ -14,6 +14,10 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+/**
+ * @Author mandy
+ * @Create 2019/5/7 14:10
+ */
 public class SendLotteryInfoTest {
 
 

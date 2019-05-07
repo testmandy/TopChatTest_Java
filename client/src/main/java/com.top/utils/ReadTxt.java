@@ -8,6 +8,8 @@ import java.util.Map;
  * Created by Nickwong on 31/07/2018.
  * 引入读取txt文件的工具类，用于读取大量测试数据
  *
+ * @Author mandy
+ * @Create 2019/5/7 14:10
  */
 public class ReadTxt {
 

@@ -4,6 +4,8 @@ import lombok.Data;
 
 /**用例基础数据
  * 登录场景
+ * @Author mandy
+ * @Create 2019/5/7 14:10
  */
 
 @Data

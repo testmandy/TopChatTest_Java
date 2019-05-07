@@ -19,6 +19,10 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.math.BigInteger;
 
+/**
+ * @Author mandy
+ * @Create 2019/5/7 14:10
+ */
 public class LoginTest {
 
     @BeforeTest(groups = "loginTrue",description = "测试准备工作，获取HttpClient对象")

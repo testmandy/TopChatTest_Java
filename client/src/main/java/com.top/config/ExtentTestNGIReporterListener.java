@@ -2,6 +2,8 @@ package com.top.config;
 
 /**测试报告模板，可套用
  *
+ * @Author mandy
+ * @Create 2019/5/7 14:10
  */
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
