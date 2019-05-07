@@ -71,6 +71,13 @@ public class SendLotteryTest {
         String reasonValue = reslutJson.getString("Reason");
         System.out.println("返回的Reason为：" + reasonValue);
 
+        JSONObject data1 = reslutJson.getJSONObject("data");
+        System.out.println("返回的data为：" + data1);
+        String lotteryAccount = data1.getString("lotteryAccount");
+        System.out.println("返回的lotteryAccount为：" + lotteryAccount);
+
+        TestConfig.lotteryAccount = lotteryAccount;
+
 
         if (errcodeValue == 0) {
             return "true";

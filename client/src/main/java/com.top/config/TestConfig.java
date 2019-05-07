@@ -26,5 +26,6 @@ public class TestConfig {
     public static String token;
     public static BigInteger uid;
     public static String address;
+    public static String lotteryAccount;
 
 }

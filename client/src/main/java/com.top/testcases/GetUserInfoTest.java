@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class GetUserInfoTest {
 
-    @Test(dependsOnGroups = "loginTrue",description = "获取用户信息接口测试",invocationCount = 3)
+    @Test(dependsOnGroups = "loginTrue",description = "获取用户信息接口测试",invocationCount = 1)
     public void getUserInfo() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
         GetUserInfoCase getUserInfoCase = session.selectOne("getUserInfo",2);
@@ -36,8 +36,8 @@ public class GetUserInfoTest {
         post.setHeader("content-type","application/json");
         post.setHeader("token",TestConfig.token);
         System.out.println(TestConfig.token);
-        post.setHeader("uid",getUserInfoCase.getUserId());
-        System.out.println(getUserInfoCase.getUserId());
+        post.setHeader("uid", String.valueOf(TestConfig.uid));
+        System.out.println("获取的uid为：" + TestConfig.uid);
 
 
         // 设置cookies

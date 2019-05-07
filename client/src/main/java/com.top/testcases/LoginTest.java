@@ -21,8 +21,6 @@ import java.math.BigInteger;
 
 public class LoginTest {
 
-    String myToken;
-
     @BeforeTest(groups = "loginTrue",description = "测试准备工作，获取HttpClient对象")
     public void beforeTest(){
         // 为url赋值
@@ -43,7 +41,8 @@ public class LoginTest {
     @Test(groups = "loginTrue",description = "登录成功接口测试")
     public void loginTrue() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
-        LoginCase loginCase = session.selectOne("loginCase",4);
+        int max = session.selectOne("loginCount");
+        LoginCase loginCase = session.selectOne("loginCase",max);
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
@@ -77,10 +76,6 @@ public class LoginTest {
         param.put("displayName",loginCase.getDisplayName());
         param.put("email",loginCase.getEmail());
         param.put("providerId",loginCase.getProviderId());
-//        param.put("photoURL",loginCase.getPhotoURL());
-//        param.put("accessToken",loginCase.getAccessToken());
-//        param.put("federatedId",loginCase.getFederatedId());
-//        param.put("code",loginCase.getCode());
 
 
         // 设置头信息
@@ -117,9 +112,6 @@ public class LoginTest {
         TestConfig.token = tokenValue;
         TestConfig.uid = uidValue;
         TestConfig.address = addressValue;
-
-//        post.setHeader("token",tokenValue);
-//        System.out.println(post.getHeaders("token"));
 
 
         int errCode = reslutJson.getInt("ErrCode");

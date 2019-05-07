@@ -5,34 +5,33 @@
             <class name="com.top.testcases.LoginTest">
                 <methods>
                     <include name="loginTrue"/>
-                    <include name="loginFalse"/>
                 </methods>
             </class>
-            <!--<class name="com.top.testcases.GetUserInfoTest">-->
-                <!--<methods>-->
-                    <!--<include name="getUserInfo"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+            <class name="com.top.testcases.GetUserInfoTest">
+                <methods>
+                    <include name="getUserInfo"/>
+                </methods>
+            </class>
             <class name="com.top.testcases.SendLotteryTest">
                 <methods>
                     <include name="SendLottery"/>
                 </methods>
             </class>
-            <!--<class name="com.top.testcases.SendLotteryInfoTest">-->
-                <!--<methods>-->
-                    <!--<include name="SendLotteryInfo"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <!--<class name="com.top.testcases.BettingLotteryTest">-->
-                <!--<methods>-->
-                    <!--<include name="bettingLottery"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <!--<class name="com.top.testcases.GetLottoryExpireTimeTest">-->
-                <!--<methods>-->
-                    <!--<include name="bettingLottery"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+            <class name="com.top.testcases.SendLotteryInfoTest">
+                <methods>
+                    <include name="SendLotteryInfo"/>
+                </methods>
+            </class>
+            <class name="com.top.testcases.BettingLotteryTest">
+                <methods>
+                    <include name="bettingLottery"/>
+                </methods>
+            </class>
+            <class name="com.top.testcases.GetLottoryExpireTimeTest">
+                <methods>
+                    <include name="bettingLottery"/>
+                </methods>
+            </class>
 
         </classes>
 

@@ -28,14 +28,12 @@ public class GetLottoryExpireTimeTest {
         // 验证返回结果
         Assert.assertEquals(getLottoryExpireTimeCase.getExpected(),result);
 
-
     }
 
     private String getResult(GetLottoryExpireTimeCase getLottoryExpireTimeCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.getLottoryExpireTimeUrl);
-
         JSONObject param = new JSONObject();
-        param.put("lotteryAccount",getLottoryExpireTimeCase.getLotteryAccount());
+        param.put("lotteryAccount",TestConfig.lotteryAccount);
 
         // 设置头信息
         post.setHeader("content-type","application/json");

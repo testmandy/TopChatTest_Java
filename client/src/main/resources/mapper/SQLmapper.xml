@@ -9,6 +9,10 @@
         select * from logincase where id=#{id} ;
     </select>
 
+    <select id="loginCount" parameterType="Integer" resultType="Integer">
+        SELECT COUNT(id) FROM logincase;
+    </select>
+
     <select id="getUserInfo" parameterType="Integer" resultType="com.top.model.GetUserInfoCase">
         select * from getuserinfocase where id=#{id};
     </select>

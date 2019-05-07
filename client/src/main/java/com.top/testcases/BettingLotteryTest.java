@@ -35,7 +35,7 @@ public class BettingLotteryTest {
     private String getResult(BettingLotteryCase bettingLotteryCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.bettingLotteryUrl);
         JSONObject param = new JSONObject();
-        param.put("lotteryAccount",bettingLotteryCase.getLotteryAccount());
+        param.put("lotteryAccount",TestConfig.lotteryAccount);
         param.put("lotteryToken",bettingLotteryCase.getLotteryToken());
 
 
