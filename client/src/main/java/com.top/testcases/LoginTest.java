@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class LoginTest {
 
@@ -42,7 +43,7 @@ public class LoginTest {
     @Test(groups = "loginTrue",description = "登录成功接口测试")
     public void loginTrue() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
-        LoginCase loginCase = session.selectOne("loginCase",1);
+        LoginCase loginCase = session.selectOne("loginCase",4);
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
@@ -54,7 +55,7 @@ public class LoginTest {
 
     }
 
-    @Test(groups = "loginFalse",description = "登录失败接口测试")
+    @Test(groups = "loginFalse",description = "登录失败接口测试",enabled = false)
     public void loginFalse() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
         LoginCase loginCase = session.selectOne("loginCase",2);
@@ -74,18 +75,18 @@ public class LoginTest {
         JSONObject param = new JSONObject();
         param.put("rawId",loginCase.getRawId());
         param.put("displayName",loginCase.getDisplayName());
-        param.put("photoURL",loginCase.getPhotoURL());
         param.put("email",loginCase.getEmail());
         param.put("providerId",loginCase.getProviderId());
-        param.put("accessToken",loginCase.getAccessToken());
-        param.put("federatedId",loginCase.getFederatedId());
-        param.put("code",loginCase.getCode());
+//        param.put("photoURL",loginCase.getPhotoURL());
+//        param.put("accessToken",loginCase.getAccessToken());
+//        param.put("federatedId",loginCase.getFederatedId());
+//        param.put("code",loginCase.getCode());
 
 
         // 设置头信息
         post.setHeader("content-type","application/json");
 
-
+        // 设置请求体
         StringEntity entity = new StringEntity(param.toString());
         post.setEntity(entity);
 
@@ -102,14 +103,22 @@ public class LoginTest {
         System.out.println("返回的Json内容为：" + result);
 
         JSONObject reslutJson = new JSONObject(result);
-        JSONObject dataValue = reslutJson.getJSONObject("data");
-        System.out.println("返回的data为：" + dataValue);
-        String tokenValue = dataValue.getString("accesstoken");
+        JSONObject data1 = reslutJson.getJSONObject("data");
+        System.out.println("返回的data为：" + data1);
+        String tokenValue = data1.getString("accesstoken");
         System.out.println("返回的accesstoken为：" + tokenValue);
+        BigInteger uidValue = data1.getBigInteger("uid");
+        System.out.println("返回的uid为：" + uidValue);
+        JSONObject data2 = data1.getJSONObject("data");
+        String addressValue = data2.getString("address");
+        System.out.println("返回的address为：" + addressValue);
+
 
         TestConfig.token = tokenValue;
+        TestConfig.uid = uidValue;
+        TestConfig.address = addressValue;
 
-        post.setHeader("token",tokenValue);
+//        post.setHeader("token",tokenValue);
 //        System.out.println(post.getHeaders("token"));
 
 

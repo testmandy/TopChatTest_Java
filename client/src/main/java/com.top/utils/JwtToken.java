@@ -36,9 +36,9 @@ public class JwtToken {
      * @throws UnsupportedEncodingException
      */
 
-    public static String createToken() throws UnsupportedEncodingException {
+    public static String createToken(String myClaim) throws UnsupportedEncodingException {
 
-        //过期时间- 1分钟过期
+        //过期时间- 2分钟过期
         Calendar nowTime = Calendar.getInstance();
         nowTime.add(Calendar.MINUTE,2);
         Date expiresDate = nowTime.getTime();
@@ -46,13 +46,12 @@ public class JwtToken {
         Map<String,Object> map = new HashMap<>();
         map.put("alg","HS256");
         map.put("typ","JWT");
-        String myJson = "{\"tre_type\":7,\"tre_number\":1,\"tre_token\":0,\"tre_createTime\":1554970926936," +
-                "\"tre_event_name\":\"T-X2x8Vggo76fYrF5bMnSMPZjtt8NsCqwng\",\"tre_desc\":\"joined group\"}";
+
         String token = JWT.create()
                 .withIssuer("TOP CHAT")
                 //设置过期时间
                 .withExpiresAt(expiresDate)
-                .withClaim("extra",myJson)
+                .withClaim("extra",myClaim)
                 .sign(Algorithm.HMAC256(SECRET));
         System.out.println(token);
         return token;
@@ -83,6 +82,11 @@ public class JwtToken {
 
         return jwt.getClaims();
 
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String myClaim = "{\"address\":\"T-mgGh7ZbkXbQbYydYqNpaMJ19LzsNLYKuBS\",\"userId\":281474976711649,\"amount\":10}";
+        createToken(myClaim);
     }
 
 }

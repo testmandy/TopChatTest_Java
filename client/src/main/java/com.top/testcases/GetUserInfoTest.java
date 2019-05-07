@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class GetUserInfoTest {
 
-    @Test(dependsOnGroups = "loginTrue",description = "获取用户信息接口测试")
+    @Test(dependsOnGroups = "loginTrue",description = "获取用户信息接口测试",invocationCount = 3)
     public void getUserInfo() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
         GetUserInfoCase getUserInfoCase = session.selectOne("getUserInfo",2);
@@ -27,7 +27,6 @@ public class GetUserInfoTest {
         // 验证返回结果
         Assert.assertEquals(getUserInfoCase.getExpected(),result);
 
-
     }
 
     private String getResult(GetUserInfoCase getUserInfoCase) throws IOException {
@@ -38,6 +37,8 @@ public class GetUserInfoTest {
         post.setHeader("token",TestConfig.token);
         System.out.println(TestConfig.token);
         post.setHeader("uid",getUserInfoCase.getUserId());
+        System.out.println(getUserInfoCase.getUserId());
+
 
         // 设置cookies
         TestConfig.defaultHttpClient.setCookieStore(TestConfig.store);

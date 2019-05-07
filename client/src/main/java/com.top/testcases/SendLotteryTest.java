@@ -3,6 +3,7 @@ package com.top.testcases;
 import com.top.config.TestConfig;
 import com.top.model.SendLotteryCase;
 import com.top.utils.DatabaseUtil;
+import com.top.utils.JwtToken;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -12,7 +13,6 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
 
 public class SendLotteryTest {
 
@@ -33,17 +33,26 @@ public class SendLotteryTest {
     private String getResult(SendLotteryCase sendLotteryCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.sendLotteryUrl);
         JSONObject param = new JSONObject();
-        param.put("address",sendLotteryCase.getAddress());
-        param.put("userId",sendLotteryCase.getUserId());
-        param.put("amount",sendLotteryCase.getAmount());
+        String address = TestConfig.address;
+        String userId = String.valueOf(TestConfig.uid);
+        String amount = sendLotteryCase.getAmount();
+        String myClaim = "{\"address\":\"" + address + "\",\"userId\":" + userId + ",\"amount\":" + amount + "}";
+        System.out.println("返回的加密内容为：" + myClaim);
+        String myJwt = JwtToken.createToken(myClaim);
+        param.put("jwt",myJwt);
 
 
         // 设置头信息
         post.setHeader("content-type","application/json");
+        post.setHeader("token",TestConfig.token);
+        System.out.println("返回的token为：" + TestConfig.token);
+        post.setHeader("uid", String.valueOf(TestConfig.uid));
+        System.out.println("返回的uid为：" + TestConfig.uid);
 
-
+        // 设置请求体
         StringEntity entity = new StringEntity(param.toString());
         post.setEntity(entity);
+        System.out.println(entity);
 
         // 设置cookies
         TestConfig.defaultHttpClient.setCookieStore(TestConfig.store);

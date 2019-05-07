@@ -39,8 +39,12 @@ public class GetLottoryExpireTimeTest {
 
         // 设置头信息
         post.setHeader("content-type","application/json");
+        post.setHeader("token",TestConfig.token);
+        System.out.println(TestConfig.token);
+        post.setHeader("uid", String.valueOf(TestConfig.uid));
+        System.out.println(TestConfig.uid);
 
-
+        // 设置请求体
         StringEntity entity = new StringEntity(param.toString());
         post.setEntity(entity);
 

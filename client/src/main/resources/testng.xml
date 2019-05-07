@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<suite name="用户管理系统测试套件">
-    <test name="用户管理系统测试用例">
+<suite name="TOP彩票接口测试套件">
+    <test name="TOP彩票接口测试用例">
         <classes>
             <class name="com.top.testcases.LoginTest">
                 <methods>
@@ -8,31 +8,31 @@
                     <include name="loginFalse"/>
                 </methods>
             </class>
-            <class name="com.top.testcases.GetUserInfoTest">
-                <methods>
-                    <include name="getUserInfo"/>
-                </methods>
-            </class>
+            <!--<class name="com.top.testcases.GetUserInfoTest">-->
+                <!--<methods>-->
+                    <!--<include name="getUserInfo"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <class name="com.top.testcases.SendLotteryTest">
                 <methods>
                     <include name="SendLottery"/>
                 </methods>
             </class>
-            <class name="com.top.testcases.SendLotteryInfoTest">
-                <methods>
-                    <include name="SendLotteryInfo"/>
-                </methods>
-            </class>
-            <class name="com.top.testcases.BettingLotteryTest">
-                <methods>
-                    <include name="bettingLottery"/>
-                </methods>
-            </class>
-            <class name="com.top.testcases.GetLottoryExpireTimeTest">
-                <methods>
-                    <include name="bettingLottery"/>
-                </methods>
-            </class>
+            <!--<class name="com.top.testcases.SendLotteryInfoTest">-->
+                <!--<methods>-->
+                    <!--<include name="SendLotteryInfo"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.top.testcases.BettingLotteryTest">-->
+                <!--<methods>-->
+                    <!--<include name="bettingLottery"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.top.testcases.GetLottoryExpireTimeTest">-->
+                <!--<methods>-->
+                    <!--<include name="bettingLottery"/>-->
+                <!--</methods>-->
+            <!--</class>-->
 
         </classes>
 
