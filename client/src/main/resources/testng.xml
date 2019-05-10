@@ -32,6 +32,11 @@
                     <include name="bettingLottery"/>
                 </methods>
             </class>
+            <class name="com.top.testcases.RewardLotteryTest">
+                <methods>
+                    <include name="bettingLottery"/>
+                </methods>
+            </class>
 
         </classes>
 

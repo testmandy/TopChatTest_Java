@@ -36,9 +36,9 @@ public class RewardLotteryTest {
     private String getResult() throws IOException {
         HttpPost post = new HttpPost(TestConfig.rewardLotteryUrl);
         JSONObject param = new JSONObject();
-        param.put("address","T-mgGh7ZbkXbQbYydYqNpaMJ19LzsNLYKuBS");
-        param.put("userId","281474976711649");
-        param.put("lotteryAccount","T-mgGh7ZbkXbQbYydYqNpaMJ19LzsNLYKuBS");
+        param.put("address",TestConfig.address);
+        param.put("userId",TestConfig.uid);
+        param.put("lotteryAccount",TestConfig.lotteryAccount);
 
         // 设置头信息
         post.setHeader("content-type","application/json");
