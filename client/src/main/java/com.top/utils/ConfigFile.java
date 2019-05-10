@@ -42,6 +42,9 @@ public class ConfigFile {
         if (name == InterfaceName.GETLOTTORYEXPIRETIME){
             uri = bundle.getString("getLottoryExpireTime.uri");
         }
+        if (name == InterfaceName.REWARDLOTTERY){
+            uri = bundle.getString("rewardLottery.uri");
+        }
 
 
         // 拼接地址

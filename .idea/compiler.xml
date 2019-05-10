@@ -15,7 +15,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="TopChatTest_Java" options="" />
       <module name="client" options="" />
-      <module name="server" options="" />
+      <module name="server" options="-extdirs E:\TopChatTest_Java\server/lib" />
     </option>
   </component>
 </project>

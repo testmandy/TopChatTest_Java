@@ -34,11 +34,10 @@ public class LoginTest {
         TestConfig.sendLotteryInfoUrl = ConfigFile.getUrl(InterfaceName.SENDLOTTERYINFO);
         TestConfig.bettingLotteryUrl = ConfigFile.getUrl(InterfaceName.BETTINGLOTTERY);
         TestConfig.getLottoryExpireTimeUrl = ConfigFile.getUrl(InterfaceName.GETLOTTORYEXPIRETIME);
+        TestConfig.rewardLotteryUrl = ConfigFile.getUrl(InterfaceName.REWARDLOTTERY);
 
         // 实例化httpClient
         TestConfig.defaultHttpClient = new DefaultHttpClient();
-
-
 
     }
 

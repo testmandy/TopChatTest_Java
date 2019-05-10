@@ -21,6 +21,7 @@ public class TestConfig {
     public static String sendLotteryInfoUrl;
     public static String bettingLotteryUrl;
     public static String getLottoryExpireTimeUrl;
+    public static String rewardLotteryUrl;
 
 
     // 定义共用的httpClient
